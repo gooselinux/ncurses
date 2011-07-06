@@ -1,0 +1,28 @@
+diff -up ncurses-5.7/misc/ncurses-config.in.config ncurses-5.7/misc/ncurses-config.in
+--- ncurses-5.7/misc/ncurses-config.in.config	2009-01-23 13:44:17.000000000 +0100
++++ ncurses-5.7/misc/ncurses-config.in	2009-01-23 14:00:38.000000000 +0100
+@@ -35,7 +35,6 @@ exec_prefix="@exec_prefix@"
+ 
+ bindir="@bindir@"
+ includedir="@includedir@"
+-libdir="@libdir@"
+ datadir="@datadir@"
+ mandir="@mandir@"
+ 
+@@ -83,7 +82,7 @@ ENDECHO
+ 		;;
+ 	--libs)
+ 		sed -e 's,^[ ]*,,' -e 's, [ ]*, ,g' -e 's,[ ]*$,,' <<-ENDECHO
+-			-L$libdir @EXTRA_LDFLAGS@ -l${THIS} @LIBS@
++			@EXTRA_LDFLAGS@ -l${THIS} @LIBS@
+ ENDECHO
+ 		;;
+ 	# identification
+@@ -107,7 +106,6 @@ ENDECHO
+ 		echo "${includedir}"
+ 		;;
+ 	--libdir)
+-		echo "${libdir}"
+ 		;;
+ 	--mandir)
+ 		echo "${mandir}"
